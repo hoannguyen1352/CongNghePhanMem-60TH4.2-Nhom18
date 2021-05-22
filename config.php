@@ -14,8 +14,7 @@ $connect;
 function connect()
 {
     global $connect;
-    $connect=mysqli_connect(dbhost,dbuser,dbpass,dbname);
-    $connect->set_charset("utf8");
+    $connect= mysqli_connect(dbhost,dbuser,dbpass,dbname);
 }
 
 //hàm disconnect
@@ -34,8 +33,8 @@ function query($query)
     disconnect();
 }
 
-//hàm chạy query và trả về kết quả
-function getdata($query)
+//hàm chạy query và trả về tất cả kết quả
+function getalldata($query)
 {
     global $connect;
     connect();
@@ -43,6 +42,19 @@ function getdata($query)
     disconnect();
     if(mysqli_num_rows($result)>0)
         return mysqli_fetch_all($result,MYSQLI_ASSOC);
+    else
+        return false;
+}
+
+//hàm chạy query và trả về 1 kết quả
+function getonedata($query)
+{
+    global $connect;
+    connect();
+    $result=mysqli_query($connect,$query);
+    disconnect();
+    if($result&&mysqli_num_rows($result)==1)
+        return mysqli_fetch_assoc($result);
     else
         return false;
 }

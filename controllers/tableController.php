@@ -1,10 +1,11 @@
 <?php
-include_once('./models/Tables.php');
+include_once('./models/Table.php');
+include_once('./models/User.php');
 class tableController
 {
     public function index()
     {
-        $data=Tables::index();
+        $data=Table::index();
         include_once('./views/table/index.php');
     }
 }
