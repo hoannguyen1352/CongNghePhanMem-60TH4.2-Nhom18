@@ -1,5 +1,4 @@
 <?php
-include_once('./assets/layouts/header.php');
 if(isset($data))
 {
     foreach($data as $table)
