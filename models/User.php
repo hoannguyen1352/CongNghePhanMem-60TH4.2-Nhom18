@@ -55,5 +55,12 @@ class User
     {
         session_destroy();
     }
+
+    public static function index()
+    {
+        $query="select * from accounts";
+        $data=getalldata($query);
+        return $data;
+    }
 }
 ?>
