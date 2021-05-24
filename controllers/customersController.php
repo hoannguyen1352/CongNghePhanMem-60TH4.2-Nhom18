@@ -15,18 +15,28 @@ class customersController
         include_once('./views/customers/create.php');
     }
 
-    public function update(int $id)
+    public function update()
     {
-        $data=Customers::update($id);
+        $id=$_GET['id'];
+        $data=Customers::showUpdate($id);
         include_once('./views/customers/update.php');
     }
 
     public function processCreate()
     {
+        if(isset($_POST['name']) && isset($_POST['phone']))
+        {
+            $result = Customers::create($_POST['name'],$_POST['phone']);
+            header('location:index.php?controller=customers&action=index');
+        }
+    }
+
+    public function processUpdate()
+    {
         if(isset($_POST['id']) && isset($_POST['name']) && isset($_POST['phone']) && isset($_POST['total']))
         {
-            $result = Customers::create($_POST['id'],$_POST['name'],$_POST['phone'],$_POST['total']);
-            header('location:index.php');
+            $result = Customers::update($_POST['id'],$_POST['name'],$_POST['phone'],$_POST['total']);
+            header('location:index.php?controller=customers&action=index');
         }
     }
 }

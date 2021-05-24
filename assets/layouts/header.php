@@ -7,13 +7,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
+    <script src="assets\js\jquery-3.5.1.min.js"></script>
+	  <script src="assets\js\bootstrap.min.js"></script>
+    <script src="assets\js\all.js"></script>
+    <link rel="stylesheet" href="assets\css\bootstrap.min.css">
+    <link rel="stylesheet" href="assets\css\bootstrap.bundle.min.js">
+    <link rel="stylesheet" href="assets\css\style.css">
+    <link rel="stylesheet" href="assets\css\all.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   </head>
   <body>
-    <form action="http://localhost/cnpm/index.php?controller=customers&action=index" method="post">
-      <button type="submit">Test</button>
-    </form>
-    <form action="http://localhost/cnpm/index.php?controller=table&action=index" method="post">
-      <button type="submit">Test2</button>
-    </form>
   </body>
