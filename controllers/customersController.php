@@ -1,7 +1,6 @@
 <?php
 include_once('./models/Customers.php');
 include_once('./models/User.php');
-include_once('./assets/layouts/navbar.php');
 class customersController
 {
     public function index()

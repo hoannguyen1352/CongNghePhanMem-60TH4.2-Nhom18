@@ -1,7 +1,6 @@
 <?php
 include_once('./models/User.php');
 include_once('./models/Drink.php');
-include_once('./assets/layouts/adminnavbar.php');
 class drinkController
 {
     //hiển thị form quản lý đồ uống

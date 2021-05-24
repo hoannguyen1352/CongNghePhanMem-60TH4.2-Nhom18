@@ -1,7 +1,6 @@
 <?php
 include_once('./models/User.php');
 include_once('./models/Table.php');
-include_once('./assets/layouts/adminnavbar.php');
 class tableController
 {
     public function index()

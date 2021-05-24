@@ -1,17 +1,39 @@
-<form action="index.php?controller=drink&action=update&id=<?php echo $data['id']; ?>" method="post" enctype="multipart/form-data">
-    <div class="form-group">
-        <label for="">Name</label>
-        <input type="text" name="name" id="" class="form-control" value="<?php echo $data['name']; ?>" aria-describedby="helpId">
-        <label for="">Price</label>
-        <input type="number" name="price" id="" class="form-control" value="<?php echo $data['price']; ?>" aria-describedby="helpId">
-        <label for="">Image</label>
-        <img src="<?php echo $data['image']; ?>" style="width:100px;height:100px">
-        <input type="hidden" value="<?php echo $data['image']; ?>" name="image">
-        <input type="file" name="image" value="<?php echo $data['image']; ?>">
-        <label for="">Note</label>
-        <input type="text" name="note" id="" class="form-control" value="<?php echo $data['note']; ?>" aria-describedby="helpId">
-        <label for=""><?php echo (isset($_GET['result'])&&$_GET['result'])?"Thành công":"" ?></label>
-        <button class="btn btn-primary" name="update  a" type="submit">Update</button>
-        <a name="" id="" class="btn btn-primary" href="index.php?controller=drink" role="button">Exit</a>
-    </div>
-</form>
+<div class="container col-10">
+    <form action="index.php?controller=drink&action=update&id=<?php echo $data['id']; ?>" method="post" enctype="multipart/form-data">
+        <div class="form-group row">
+            <label for="inputEmail3" class="col-sm-2 col-form-label">Tên</label>
+            <div class="col-sm-10">
+                <input type="text" name="name" class="form-control" value="<?php echo $data['name']; ?>">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="inputEmail3" class="col-sm-2 col-form-label">Giá</label>
+            <div class="col-sm-10">
+                <input type="number" name="price" class="form-control" value="<?php echo $data['price']; ?>">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="inputEmail3" class="col-sm-2 col-form-label">Ảnh</label>
+            <div class="col-sm-10">
+                <img src="<?php echo $data['image']; ?>" style="width:100px;height:100px">
+                <input type="hidden" value="<?php echo $data['image']; ?>" name="image">
+                <input type="file" name="image">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="inputEmail3" class="col-sm-2 col-form-label">Ghi chú</label>
+            <div class="col-sm-10">
+                <input type="text" name="note" class="form-control" value="<?php echo $data['note']; ?>">
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-sm-2"></div>
+            <label class="text-danger" for=""><?php echo (isset($_GET['result']) && $_GET['result']) ? "Thành công" : "" ?></label>
+        </div>
+        <div class="form-group row mx-auto">
+            <div class="col-sm-2"></div>
+            <button type="submit" class="btn btn-primary">Cập Nhật</button>
+            <a name="" id="" class="btn btn-primary ml-2" href="index.php?controller=drink" role="button">Thoát</a>
+        </div>
+    </form>
+</div>
