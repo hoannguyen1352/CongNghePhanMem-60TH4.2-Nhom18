@@ -1,6 +1,5 @@
 <?php
 include_once('./models/User.php');
-include_once('./assets/layouts/navbar.php');
 class userController
 {
     public function login()
@@ -27,6 +26,21 @@ class userController
         {
             $data=User::index();
         }
+    }
+
+    public function insert()
+    {
+
+    }
+
+    public function update()
+    {
+
+    }
+
+    public function delete()
+    {
+        
     }
 }
 ?>
