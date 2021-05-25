@@ -1,6 +1,6 @@
 <?php
 include_once('./config.php');
-class Customers
+class Customer
 {
     public static function index()
     {
