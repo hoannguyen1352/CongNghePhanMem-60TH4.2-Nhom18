@@ -9,9 +9,17 @@ class Table
         $data=getalldata($query);
         return $data;
     }
-    public static function adddrink(int $idtable ,int $iddrink,int $number)
-    {
-        
+
+    public static function gettableinfor($idtable){
+        $query = "select infor from tables where id =$idtable";
+        $data = getonedata($query);
+        return $data;
+    }
+
+    public static function status(){
+        $query="select infor from tables";
+        $data = getalldata($query);
+        return $data;
     }
 }
 ?>
