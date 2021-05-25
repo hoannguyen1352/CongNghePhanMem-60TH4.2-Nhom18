@@ -24,6 +24,7 @@ if (User::isLogin()) {
         <?php
         }
         ?>
+        <!-- thêm các button chức năng vào đây -->
         </div>
         <li class="nav-item col-2">
           <a href="index.php?controller=user&action=logout" class="nav-link active">Đăng xuất</a>
