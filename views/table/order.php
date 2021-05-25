@@ -7,7 +7,7 @@ include_once "./assets/layouts/header.php";
         <div class="col-md-6">
             <h2 class="m-2">Menu</h2>
 
-            <form method="post" action="http://localhost/website_qlcafe/index.php?controller=order&action=order&id=<?php echo $data1['id'] ?>">
+            <form method="post" action="http://localhost/website_qlcafe/index.php?controller=table&action=order&id=<?php echo $data1['id'] ?>">
                 <div class="form-group">
                     <?php
                     if (isset($data)) {
@@ -60,10 +60,10 @@ include_once "./assets/layouts/header.php";
                                     <tr>
                                         <td><?php echo $drink[$i]['stt']; ?></td>
                                         <td><?php echo $drink[$i]['ten']; ?></td>
-                                        <td><a href="./index.php?controller=order&action=updown&idtb=<?php echo $data1['id'] ?>&iddd=<?php echo $drink[$i]['id'] ?>">giảm</a><?php echo $drink[$i]['soluong']; ?><a href="./index.php?controller=order&action=updown&idtb=<?php echo $data1['id'] ?>&iddu=<?php echo $drink[$i]['id'] ?>">tăng</a></td>
+                                        <td><a href="./index.php?controller=table&action=updown&idtb=<?php echo $data1['id'] ?>&iddd=<?php echo $drink[$i]['id'] ?>">giảm</a><?php echo $drink[$i]['soluong']; ?><a href="./index.php?controller=table&action=updown&idtb=<?php echo $data1['id'] ?>&iddu=<?php echo $drink[$i]['id'] ?>">tăng</a></td>
                                         <td><?php echo $drink[$i]['gia']; ?></td>
                                         <td><?php echo $drink[$i]['thanhtien']; ?></td>
-                                        <td><a href="./index.php?controller=order&action=delete&idtb=<?php echo $data1['id'] ?>&idd=<?php echo $drink[$i]['id'] ?>"><i class="fas fa-pen ml-3">Hủy</i></a></td>
+                                        <td><a href="./index.php?controller=table&action=delete&idtb=<?php echo $data1['id'] ?>&idd=<?php echo $drink[$i]['id'] ?>"><i class="fas fa-pen ml-3">Hủy</i></a></td>
                                     </tr>
                             <?php
                                 }
@@ -89,7 +89,7 @@ include_once "./assets/layouts/header.php";
                     <div class="col-md-12">
                     <div class="row">
                     <div class="col-md-6p-1 d-flex justify-content-center">
-                            <a href="./index.php?controller=order&action=pay&id=<?php echo $data1['id'] ?>" class="p-2 rounded border border-danger btn btn-success"> Thanh Toán </a>
+                            <a href="./index.php?controller=table&action=pay&id=<?php echo $data1['id'] ?>" class="p-2 rounded border border-danger btn btn-success"> Thanh Toán </a>
                         </div>
                         <div class="col-md-6 p-1 d-flex justify-content-center">
                             <a href="#" class="p-2 rounded border border-success btn btn-danger"> Hủy </a>

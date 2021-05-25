@@ -10,9 +10,9 @@ include_once "./assets/layouts/header.php"
       if (isset($data)) {
         foreach ($data as $table) {
           if ($table['status'] == '0'){?>
-            <a href="./index.php?controller=order&action=order&id=<?php echo $table['id'] ?>" class="m-3 pt-4 pb-4 pr-5 pl-5 btn btn-secondary text-white" id = "<?php echo $table['id'] ?>" name="table" onclick="" ><?php echo $table['name']?></a>
+            <a href="./index.php?controller=table&action=order&id=<?php echo $table['id'] ?>" class="m-3 pt-4 pb-4 pr-5 pl-5 btn btn-secondary text-white" id = "<?php echo $table['id'] ?>" name="table" onclick="" ><?php echo $table['name']?></a>
           <?php }
-          else {?> <a href="./index.php?controller=order&action=order&id=<?php echo $table['id'] ?>" class="m-3 pt-4 pb-4 pr-5 pl-5 btn btn-primary text-white" id = "<?php echo $table['id'] ?>" name="table" ><?php echo $table['name'] ?></a>
+          else {?> <a href="./index.php?controller=table&action=order&id=<?php echo $table['id'] ?>" class="m-3 pt-4 pb-4 pr-5 pl-5 btn btn-primary text-white" id = "<?php echo $table['id'] ?>" name="table" ><?php echo $table['name'] ?></a>
         <?php }}} ?>
     </div>
   </div>

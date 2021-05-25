@@ -36,5 +36,11 @@ class Drink
     {
         
     }
+
+    public static function infortable($iddrink){
+        $query="select name, price from drinks where id = $iddrink";
+        $data=getonedata($query);
+        return $data;
+    }
 }
 ?>
