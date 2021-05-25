@@ -3,7 +3,6 @@ if (User::isLogin()) {
 ?>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="index.php">Bàn cafe</a>
-    <a class="nav-link text-secondary" href="index.php?controller=customer&action=index">Khách hàng</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -24,7 +23,11 @@ if (User::isLogin()) {
         <?php
         }
         ?>
+        <!-- thêm các button chức năng vào đây -->
         </div>
+        <li class="nav-item">
+          <a class="nav-link" href="index.php?controller=customer&action=index">Customers</a>
+        </li>
         <li class="nav-item col-2">
           <a href="index.php?controller=user&action=logout" class="nav-link active">Đăng xuất</a>
         </li>

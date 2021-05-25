@@ -1,4 +1,4 @@
-<form action="http://localhost/cnpm/index.php?controller=user&action=login" method="post">
+<form action="" method="post">
 <div class="form-group">
   <label for="">User Name</label>
   <input type="text"class="form-control" name="username" id="" aria-describedby="helpId" placeholder="">
