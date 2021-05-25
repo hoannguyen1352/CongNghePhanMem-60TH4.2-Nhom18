@@ -75,28 +75,29 @@ include_once "./assets/layouts/header.php";
             </div>
             <div class="row">
                 <div class="col-md-6">
-                    <div class="col-md-12">
+                    <form action="index.php?controller=table&action=pay&id=<?php echo $data1['id'] ?>" method="post">
+                        <div class="col-md-12">
 
-                        <div class="row form-group">
-                            <label class="col-form-label"><b>Mã hội viên</b></label>
-                            <div class="col-md-8">
-                                <?php if (isset($drink) && $drink[1] != NULL) { ?>
-                                    <input type="text" class="form-control total-pay">
-                                <?php } else { ?> <input type="text" value="0" class="form-control total-pay" disabled="disabled"> <?php } ?>
+                            <div class="row form-group">
+                                <label class="col-form-label"><b>Mã hội viên</b></label>
+                                <div class="col-md-8">
+                                    <?php if (isset($drink) && $drink[1] != NULL) { ?>
+                                        <input type="text" name="cid" class="form-control">
+                                    <?php } else { ?> <input type="text" value="" class="form-control" disabled="disabled"> <?php } ?>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-md-12">
-                    <div class="row">
-                    <div class="col-md-6p-1 d-flex justify-content-center">
-                            <a href="./index.php?controller=table&action=pay&id=<?php echo $data1['id'] ?>" class="p-2 rounded border border-danger btn btn-success"> Thanh Toán </a>
+                        <div class="col-md-12">
+                            <div class="row">
+                                <div class="col-md-6 p-1 d-flex justify-content-center">
+                                    <button type="submit" class="p-2 rounded border border-danger btn btn-success"> Thanh Toán </button>
+                                </div>
+                                <div class="col-md-6 p-1 d-flex justify-content-center">
+                                    <a href="index.php" class="p-2 rounded border border-success btn btn-danger"> Quay lại </a>
+                                </div>
+                            </div>
                         </div>
-                        <div class="col-md-6 p-1 d-flex justify-content-center">
-                            <a href="#" class="p-2 rounded border border-success btn btn-danger"> Hủy </a>
-                        </div>
-                    </div>
-                        
-                    </div>
+                    </form>
                 </div>
                 <div class="col-md-6">
                     <div class="row form-group">
@@ -107,25 +108,8 @@ include_once "./assets/layouts/header.php";
                             <?php } else { ?> <input type="text" value="0" class="form-control" disabled="disabled"> <?php } ?>
                         </div>
                     </div>
-                    <div class="row form-group">
-                        <label class="col-form-label col-md-4"><b>Giảm giá</b></label>
-                        <div class="col-md-8">
-                            <?php if (isset($drink) && $drink[1] != NULL) { ?>
-                                <input type="text" value="<?php echo $sum ?>" class="form-control " disabled="disabled">
-                            <?php } else { ?> <input type="text" value="0" class="form-control " disabled="disabled"> <?php } ?>
-                        </div>
-                    </div>
-                    <div class="row form-group">
-                        <label class="col-form-label col-md-4"><b>Tổng cộng</b></label>
-                        <div class="col-md-8">
-                            <?php if (isset($drink) && $drink[1] != NULL) { ?>
-                                <input type="text" value="<?php echo $sum ?>" class="form-control " disabled="disabled">
-                            <?php } else { ?> <input type="text" value="0" class="form-control" disabled="disabled"> <?php } ?>
-                        </div>
-                    </div>
                 </div>
             </div>
-
         </div>
     </div>
 </div>

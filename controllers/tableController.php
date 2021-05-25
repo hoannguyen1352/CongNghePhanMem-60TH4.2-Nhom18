@@ -1,12 +1,13 @@
 <?php
 include_once('./models/Table.php');
 include_once('./models/Drink.php');
-//include_once('./models/Order.php');
+include_once('./models/Bill.php');
+include_once('./models/Billdetail.php');
 class tableController
-{    
+{
     public function index()
     {
-        $data=Table::index();
+        $data = Table::index();
         include_once('./views/table/index.php');
     }
 
@@ -26,7 +27,7 @@ class tableController
             $sum = 0;
             for ($i = 1; $i <= sizeof($tableinfor); $i += 1) {
                 if ($tableinfor['' . $i . ''] > 0) {
-                    $infor = Drink::infortable($i);
+                    $infor = Drink::getdrink($i);
                     $drink[$j]['id'] = $i;
                     $drink[$j]['stt'] = $j;
                     $drink[$j]['ten'] = $infor['name'];
@@ -49,7 +50,7 @@ class tableController
             $sum = 0;
             for ($i = 1; $i <= sizeof($tableinfor); $i += 1) {
                 if ($tableinfor['' . $i . ''] > 0) {
-                    $infor = Drink::infortable($i);
+                    $infor = Drink::getdrink($i);
                     $drink[$j]['id'] = $i;
                     $drink[$j]['stt'] = $j;
                     $drink[$j]['ten'] = $infor['name'];
@@ -126,8 +127,7 @@ class tableController
             }
             $tableinfor = json_encode($tableinfor);
             Table::update($idtb, 1, $tableinfor);
-        }
-        else if(isset($_GET["iddd"])){
+        } else if (isset($_GET["iddd"])) {
             $idd = $_GET["iddd"];
             $tableinfor = Table::gettableinfor($idtb);
             $tableinfor = json_decode($tableinfor['infor'], true);
@@ -160,7 +160,8 @@ class tableController
         include_once('./views/table/order.php');
     }
 
-    public function pay(){
+    public function pay()
+    {
         $data = Drink::index();
         $id = $_GET["id"];
         $data1 = Table::getdata($id);
@@ -182,10 +183,24 @@ class tableController
                 $j += 1;
             }
         }
-        if($j == 1){ include_once('./views/table/order.php'); }
-        elseif($j >1 ){
-            
+        if ($j == 1) {
+            include_once('./views/table/order.php');
+        } elseif ($j > 1) {
+            if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                $cid = $_POST['cid'];
+                if ($cid == "") $cid = -1;
+                Bill::insert($cid, $id);
+                $billdata = Bill::lastindex();
+                for ($i = 1; $i < $j; $i += 1) {
+                    Billdetail::insert($billdata['id'], $drink[$i]['id'], $drink[$i]['soluong'], $drink[$i]['thanhtien']);
+                }
+                for ($i = 1; $i <= sizeof($tableinfor); $i += 1) {
+                    $tableinfor['' . $i . ''] = 0;
+                }
+                $tableinfor = json_encode($tableinfor);
+                Table::update($id, 0, $tableinfor);
+                include_once('./views/table/confirm.php');
+            }
         }
     }
 }
-?>
