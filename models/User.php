@@ -55,5 +55,20 @@ class User
     {
         session_destroy();
     }
+    
+    public static function isadmin()
+    {
+        if(self::$level=='1')
+            return true;
+        else
+            return false;
+    }
+
+    public static function index()
+    {
+        $query="select * from accounts";
+        $data=getalldata($query);
+        return $data;
+    }
 }
 ?>
