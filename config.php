@@ -29,8 +29,9 @@ function query($query)
 {
     global $connect;
     connect();
-    mysqli_query($connect,$query);
+    $result=mysqli_query($connect,$query);
     disconnect();
+    return $result;
 }
 
 //hàm chạy query và trả về tất cả kết quả

@@ -2,7 +2,7 @@
 include_once('./config.php');
 class Table
 {
-
+    //lấy dữ liệu các bàn
     public static function index()
     {
         $query="select * from tables";
@@ -36,6 +36,12 @@ class Table
     public static function updateinfor($idtable, $infor){
         $query="update tables set infor = '$infor' where id = $idtable";
         query($query);
+    }
+
+    //xóa đồ uống của bàn
+    public static function deletedrink(int $idtable )
+    {
+        
     }
 }
 ?>

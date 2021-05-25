@@ -19,5 +19,28 @@ class userController
         User::logout();
         header('location:index.php?controller=user&action=login');
     }
+
+    public function index()
+    {
+        if(User::$level=='1')
+        {
+            $data=User::index();
+        }
+    }
+
+    public function insert()
+    {
+
+    }
+
+    public function update()
+    {
+
+    }
+
+    public function delete()
+    {
+        
+    }
 }
 ?>
