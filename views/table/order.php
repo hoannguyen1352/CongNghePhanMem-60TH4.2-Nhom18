@@ -4,43 +4,42 @@ include_once "./assets/layouts/header.php";
 ?>
 <div class="container-fluid">
     <div class="row">
-        <div class="col-md-6">
-            <h2 class="m-2 text-primary">Menu</h2>
-            
-            <form method="post" action="./index.php?controller=table&action=order&id=<?php echo $data1['id'] ?>" class="">
-                    <?php
-                    if (isset($data)) {
-                        foreach ($data as $drinks) { ?>
+        <div class="col-md-6 ">
+            <h2 class="m-2 text-primary border-bottom ">Menu</h2>
+            <form method="post" action="./index.php?controller=table&action=order&id=<?php echo $data1['id'] ?>">
+                <?php
+                if (isset($data)) {
+                    foreach ($data as $drinks) { ?>
                         <div class="form-group d-flex justify-content-between float-left">
                             <div class="container-fluid border border-success rounded m-2 ">
                                 <div class="row p-2">
                                     <div class="p-3">
-                                            <div>
-                                                <img src="https://img.thuthuatphanmem.vn/uploads/2018/10/04/anh-dep-ben-ly-cafe-den_110730392.jpg" class="rounded align-center" style="height: 100px;width: 100px;text-align: center;">
-                                            </div>
-                                            <div class="text-center">
-                                                <span class="product-name"><?php echo $drinks['name']; ?></span><br>
-                                                <strong><?php echo $drinks['price'] ?></strong>
-                                            </div>
-                                            <div >
-                                        <label for="">Số lượng: </label>
-                                        <input type="text" style="width: 30px;" name="<?php echo $drinks['id'] ?>" value="0">
+                                        <div>
+                                            <img src="<?php echo $drinks['image'] ?>" class="rounded align-center" style="height: 100px;width: 100px;text-align: center;">
+                                        </div>
+                                        <div class="text-center">
+                                            <strong class="text-danger"><?php echo $drinks['name']; ?></strong><br>
+                                            <strong><?php echo $drinks['price'] ?></strong>
+                                        </div>
+                                        <div>
+                                            <label for="">Số lượng: </label>
+                                            <input type="text" style="width: 30px;" name="<?php echo $drinks['id'] ?>" value="0">
+                                        </div>
                                     </div>
-                                    </div>
-                                    
+
                                 </div>
                             </div>
-                         </div>
-                    <?php }
-                    }
-                    ?>
-                <button type="submit" class="btn btn-success pt-2 pb-2 pr-5 pl-5 float-right" style="margin-right: 70px;">thêm</button>
+                        </div>
+                <?php }
+                }
+                ?>
+                <button type="submit" class="btn btn-success pt-2 pb-2 pr-5 pl-5">thêm</button>
             </form>
         </div>
         <div class="col-md-6">
-            <h2 class="m-2 text-primary"><?php echo $data1['name']; ?></h2>
+            <h2 class="m-2 text-primary border-bottom"><?php echo $data1['name']; ?></h2>
             <div class="row">
-                <div class="col-md-12" style="height: 350px;overflow:auto;">
+                <div class="col-md-12" style="height: 450px;overflow:auto;">
                     <table class="table table-bordered table-striped text-center">
                         <thead class="thead-dark">
                             <tr>
@@ -103,7 +102,7 @@ include_once "./assets/layouts/header.php";
                         <label class="col-form-label col-md-4"><b>Tổng tiền</b></label>
                         <div class="col-md-8">
                             <?php if (isset($drink) && $drink[1] != NULL) { ?>
-                                <input type="text" value="<?php echo $sum ?>" class="form-control" disabled="disabled">
+                                <input type="text" value="<?php echo $sum ?>" class="form-control text-danger font-weight-bold" disabled="disabled">
                             <?php } else { ?> <input type="text" value="0" class="form-control" disabled="disabled"> <?php } ?>
                         </div>
                     </div>

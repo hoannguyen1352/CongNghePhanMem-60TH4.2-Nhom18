@@ -3,6 +3,7 @@ include_once('./models/Table.php');
 include_once('./models/Drink.php');
 include_once('./models/Bill.php');
 include_once('./models/Billdetail.php');
+include_once('./models/Customer.php');
 class tableController
 {
     public function index()
@@ -20,7 +21,7 @@ class tableController
             $tableinfor = Table::gettableinfor($id);
             $tableinfor = json_decode($tableinfor['infor'], true);
             foreach ($data as $drinks) {
-                $tableinfor['' . $drinks["id"] . ''] = isset($tableinfor['' . $drinks["id"] . ''])? $tableinfor['' . $drinks["id"] . ''] + $_POST['' . $drinks["id"] . ''] : $_POST['' . $drinks["id"] . ''];
+                $tableinfor['' . $drinks["id"] . ''] = isset($tableinfor['' . $drinks["id"] . '']) ? $tableinfor['' . $drinks["id"] . ''] + $_POST['' . $drinks["id"] . ''] : $_POST['' . $drinks["id"] . ''];
             }
             $drink[1] = NULL;
             $j = 1;
@@ -51,24 +52,23 @@ class tableController
                 }
                 $tableinfor = json_encode($tableinfor);
                 Table::update($id, 0, $tableinfor);
-            }
-            else{
-            $drink[1] = NULL;
-            $j = 1;
-            $sum = 0;
-            for ($i = 1; $i <= sizeof($tableinfor); $i += 1) {
-                if ($tableinfor['' . $i . ''] > 0) {
-                    $infor = Drink::getdrink($i);
-                    $drink[$j]['id'] = $i;
-                    $drink[$j]['stt'] = $j;
-                    $drink[$j]['ten'] = $infor['name'];
-                    $drink[$j]['soluong'] = $tableinfor['' . $i . ''];
-                    $drink[$j]['gia'] = $infor['price'];
-                    $drink[$j]['thanhtien'] = $infor['price'] * $tableinfor['' . $i . ''];
-                    $sum = $sum + $drink[$j]['thanhtien'];
-                    $j += 1;
+            } else {
+                $drink[1] = NULL;
+                $j = 1;
+                $sum = 0;
+                for ($i = 1; $i <= sizeof($tableinfor); $i += 1) {
+                    if ($tableinfor['' . $i . ''] > 0) {
+                        $infor = Drink::getdrink($i);
+                        $drink[$j]['id'] = $i;
+                        $drink[$j]['stt'] = $j;
+                        $drink[$j]['ten'] = $infor['name'];
+                        $drink[$j]['soluong'] = $tableinfor['' . $i . ''];
+                        $drink[$j]['gia'] = $infor['price'];
+                        $drink[$j]['thanhtien'] = $infor['price'] * $tableinfor['' . $i . ''];
+                        $sum = $sum + $drink[$j]['thanhtien'];
+                        $j += 1;
+                    }
                 }
-            }
             }
         }
         include_once('./views/table/order.php');
@@ -179,7 +179,6 @@ class tableController
         $drink[1] = NULL;
         $j = 1;
         $sum = 0;
-        $sale = 0;
         for ($i = 1; $i <= sizeof($tableinfor); $i += 1) {
             if ($tableinfor['' . $i . ''] > 0) {
                 $infor = Drink::infortable($i);
@@ -193,13 +192,33 @@ class tableController
                 $j += 1;
             }
         }
-        $total = $sum - $sale;
         if ($j == 1) {
             include_once('./views/table/order.php');
         } elseif ($j > 1) {
             if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $cid = $_POST['cid'];
-                if ($cid == "") $cid = -1;
+                $sale = 0;
+                if ($cid == "") $cid = 0;
+                if ($cid != 0) {
+                    if(Customer::showUpdate($cid)){
+                    $inforCustomer = Customer::showUpdate($cid);
+                    if ($inforCustomer['total'] >= 5000000) $sale = (int)$sum * 0.08;
+                    if ($inforCustomer['total'] >= 8000000) $sale = (int)$sum * 0.1;
+                    if ($inforCustomer['total'] >= 10000000) $sale = (int)$sum * 0.12;
+                    $sale = (float)$sale / 1000;
+                    $sale = round($sale) * 1000;
+                    $totalpay = $sum - $sale;
+                    $total = $totalpay + $inforCustomer['total'];
+                    }
+                    else{
+                        $cid = 0;
+                        $totalpay = $sum - $sale;
+                    }
+                    if($cid != 0){
+                        Customer::updatetotal($cid,$total);
+                    }
+                }
+                else $totalpay = $sum - $sale;
                 Bill::insert($cid, $id);
                 $billdata = Bill::lastindex();
                 for ($i = 1; $i < $j; $i += 1) {

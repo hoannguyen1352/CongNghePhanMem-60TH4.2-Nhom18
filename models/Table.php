@@ -37,11 +37,5 @@ class Table
         $query="update tables set infor = '$infor' where id = $idtable";
         query($query);
     }
-
-    //xóa đồ uống của bàn
-    public static function deletedrink(int $idtable )
-    {
-        
-    }
 }
 ?>

@@ -1,7 +1,7 @@
 <?php
 include_once('./assets/layouts/header.php');
 ?>
-    <form action="http://localhost/cnpm/index.php?controller=customer&action=processCreate" method="post">
+    <form action="index.php?controller=customer&action=processCreate" method="post">
       <div class="container-fruid" align="center">
       <div class="form-group col-4" align="left">
       <h1 class="" style="text-align:left"></br>Thêm khách hàng</h1>

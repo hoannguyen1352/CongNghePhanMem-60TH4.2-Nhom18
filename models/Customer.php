@@ -27,5 +27,11 @@ class Customer
         $query="UPDATE customers SET id='$id', name='$name', phone='$phone', total='$total' WHERE id = $id;";
         query($query); 
     }
+
+    public static function updatetotal(int $id, int $total)
+    {
+        $query="UPDATE customers SET total=$total WHERE id = $id;";
+        query($query); 
+    }
 }
 ?>
