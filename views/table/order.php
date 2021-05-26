@@ -16,7 +16,7 @@ include_once "./assets/layouts/header.php";
                                 <div class="row p-2">
                                     <div class="p-3">
                                             <div>
-                                                <img src="https://img.thuthuatphanmem.vn/uploads/2018/10/04/anh-dep-ben-ly-cafe-den_110730392.jpg" class="rounded align-center" style="height: 100px;width: 100px;text-align: center;">
+                                                <img src="<?php echo $data['image']; ?>" class="rounded align-center" style="height: 100px;width: 100px;text-align: center;">
                                             </div>
                                             <div class="text-center">
                                                 <span class="product-name"><?php echo $drinks['name']; ?></span><br>
