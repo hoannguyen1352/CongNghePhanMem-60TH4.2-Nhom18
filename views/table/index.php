@@ -1,6 +1,5 @@
 <?php
 include_once "./assets/layouts/navbar.php";
-include_once "./assets/layouts/header.php"
 ?>
 <div class="container-fluid">
   <div class="row" style="margin-top: 100px;">
