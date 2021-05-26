@@ -25,9 +25,9 @@
             </div>
         </div>
         <div class="form-group row">
-            <label for="inputEmail3" class="col-sm-2 col-form-label" required="required">Ghi chú</label>
+            <label for="inputEmail3" class="col-sm-2 col-form-label">Ghi chú</label>
             <div class="col-sm-8">
-                <input type="text" name="note" class="form-control">
+                <input type="text" name="note" class="form-control" required="required">
             </div>
         </div>
         <div class="form-group row">
