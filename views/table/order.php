@@ -6,36 +6,35 @@ include_once "./assets/layouts/header.php";
     <div class="row">
         <div class="col-md-6">
             <h2 class="m-2 text-primary">Menu</h2>
-
-            <form method="post" action="./index.php?controller=table&action=order&id=<?php echo $data1['id'] ?>" class=" ">
-                <div class="form-group d-flex">
+            
+            <form method="post" action="./index.php?controller=table&action=order&id=<?php echo $data1['id'] ?>" class="">
                     <?php
                     if (isset($data)) {
                         foreach ($data as $drinks) { ?>
+                        <div class="form-group d-flex justify-content-between float-left">
                             <div class="container-fluid border border-success rounded m-2 ">
-                                <div class="row p-3">
+                                <div class="row p-2">
                                     <div class="p-3">
-                                        <li style="list-style:none;" class="">
                                             <div>
-                                                <img src="https://img.thuthuatphanmem.vn/uploads/2018/10/04/anh-dep-ben-ly-cafe-den_110730392.jpg" style="height: 75px;width: 75px;text-align: center;">
+                                                <img src="https://img.thuthuatphanmem.vn/uploads/2018/10/04/anh-dep-ben-ly-cafe-den_110730392.jpg" class="rounded align-center" style="height: 100px;width: 100px;text-align: center;">
                                             </div>
-                                            <div>
+                                            <div class="text-center">
                                                 <span class="product-name"><?php echo $drinks['name']; ?></span><br>
                                                 <strong><?php echo $drinks['price'] ?></strong>
                                             </div>
-                                        </li>
-                                    </div>
-                                    <div class="">
+                                            <div >
                                         <label for="">Số lượng: </label>
-                                        <input type="text" style="width: 140px;" name="<?php echo $drinks['id'] ?>" value="0">
+                                        <input type="text" style="width: 30px;" name="<?php echo $drinks['id'] ?>" value="0">
                                     </div>
+                                    </div>
+                                    
                                 </div>
                             </div>
+                         </div>
                     <?php }
                     }
                     ?>
-                </div>
-                <button type="submit" class="btn btn-success pt-2 pb-2 pr-5 pl-5 float-right mr-3 ">thêm</button>
+                <button type="submit" class="btn btn-success pt-2 pb-2 pr-5 pl-5 float-right" style="margin-right: 70px;">thêm</button>
             </form>
         </div>
         <div class="col-md-6">
@@ -60,10 +59,10 @@ include_once "./assets/layouts/header.php";
                                     <tr>
                                         <td><?php echo $drink[$i]['stt']; ?></td>
                                         <td><?php echo $drink[$i]['ten']; ?></td>
-                                        <td><a href="./index.php?controller=table&action=updown&idtb=<?php echo $data1['id'] ?>&iddd=<?php echo $drink[$i]['id'] ?>" class="float-left">giảm</a><?php echo $drink[$i]['soluong']; ?><a href="./index.php?controller=table&action=updown&idtb=<?php echo $data1['id'] ?>&iddu=<?php echo $drink[$i]['id'] ?>" class="float-right">tăng</a></td>
+                                        <td><a href="./index.php?controller=table&action=updown&idtb=<?php echo $data1['id'] ?>&iddd=<?php echo $drink[$i]['id'] ?>" class="float-left"><i class="fas fa-minus"></i></a><?php echo $drink[$i]['soluong']; ?><a href="./index.php?controller=table&action=updown&idtb=<?php echo $data1['id'] ?>&iddu=<?php echo $drink[$i]['id'] ?>" class="float-right"><i class="fas fa-plus"></i></a></td>
                                         <td><?php echo $drink[$i]['gia']; ?></td>
                                         <td><?php echo $drink[$i]['thanhtien']; ?></td>
-                                        <td><a href="./index.php?controller=table&action=delete&idtb=<?php echo $data1['id'] ?>&idd=<?php echo $drink[$i]['id'] ?>"><i class="fa fa-close ml-3">Hủy</i></a></td>
+                                        <td><a href="./index.php?controller=table&action=delete&idtb=<?php echo $data1['id'] ?>&idd=<?php echo $drink[$i]['id'] ?>" class="text-danger"><i class="fas fa-times ml-3"></i></a></td>
                                     </tr>
                             <?php
                                 }

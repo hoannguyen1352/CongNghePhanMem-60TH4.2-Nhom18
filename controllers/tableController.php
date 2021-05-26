@@ -20,7 +20,7 @@ class tableController
             $tableinfor = Table::gettableinfor($id);
             $tableinfor = json_decode($tableinfor['infor'], true);
             foreach ($data as $drinks) {
-                $tableinfor['' . $drinks["id"] . ''] = $tableinfor['' . $drinks["id"] . ''] + $_POST['' . $drinks["id"] . ''];
+                $tableinfor['' . $drinks["id"] . ''] = isset($tableinfor['' . $drinks["id"] . ''])? $tableinfor['' . $drinks["id"] . ''] + $_POST['' . $drinks["id"] . ''] : $_POST['' . $drinks["id"] . ''];
             }
             $drink[1] = NULL;
             $j = 1;
@@ -45,6 +45,14 @@ class tableController
         } else {
             $tableinfor = Table::gettableinfor($id);
             $tableinfor = json_decode($tableinfor['infor'], true);
+            if ($tableinfor == NULL) {
+                foreach ($data as $drinks) {
+                    $tableinfor['' . $drinks["id"] . ''] = 0;
+                }
+                $tableinfor = json_encode($tableinfor);
+                Table::update($id, 0, $tableinfor);
+            }
+            else{
             $drink[1] = NULL;
             $j = 1;
             $sum = 0;
@@ -60,6 +68,7 @@ class tableController
                     $sum = $sum + $drink[$j]['thanhtien'];
                     $j += 1;
                 }
+            }
             }
         }
         include_once('./views/table/order.php');
