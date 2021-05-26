@@ -3,13 +3,13 @@
         <div class="form-group row">
             <label for="inputEmail3" class="col-sm-2 col-form-label">Tên</label>
             <div class="col-sm-8">
-                <input type="text" name="name" class="form-control">
+                <input type="text" name="name" class="form-control" required="required">
             </div>
         </div>
         <div class="form-group row">
             <label for="inputEmail3" class="col-sm-2 col-form-label">Giá</label>
             <div class="col-sm-8">
-                <input type="number" name="price" class="form-control">
+                <input type="number" name="price" class="form-control" required="required">
             </div>
         </div>
         <div class="form-group row">
@@ -25,7 +25,7 @@
             </div>
         </div>
         <div class="form-group row">
-            <label for="inputEmail3" class="col-sm-2 col-form-label">Ghi chú</label>
+            <label for="inputEmail3" class="col-sm-2 col-form-label" required="required">Ghi chú</label>
             <div class="col-sm-8">
                 <input type="text" name="note" class="form-control">
             </div>
