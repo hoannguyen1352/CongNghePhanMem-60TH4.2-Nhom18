@@ -28,9 +28,9 @@ class Customer
         query($query); 
     }
 
-    public static function updatetotal(int $id, int $total)
+    public static function updatetotal(int $cid, int $total)
     {
-        $query="UPDATE customers SET total=$total WHERE id = $id;";
+        $query="UPDATE customers SET total=total+$total WHERE id = $cid;";
         query($query); 
     }
 }

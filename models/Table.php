@@ -27,14 +27,9 @@ class Table
         $data=getonedata($query);
         return $data;
     }
-    
-    public static function update($idtable, $status, $infor){
-        $query="update tables set  status = $status, infor = '$infor' where id = $idtable";
-        query($query);
-    }
 
-    public static function updateinfor($idtable, $infor){
-        $query="update tables set infor = '$infor' where id = $idtable";
+    public static function updatestatus($idtable, $status){
+        $query="update tables set status = $status where id = $idtable";
         query($query);
     }
 }
