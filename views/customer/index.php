@@ -5,7 +5,7 @@ include_once('./assets/layouts/header.php');
     <div class="container">
     <form class="form-inline">
         <div class="form-group">
-        <h1 class="" style="text-align:left"></br>Khách hàng</h1>
+        <h1 class="" style="text-align:left"></br>Hội viên</h1>
         <a name="" id="" class="btn btn-primary ml-3 mt-5" href="index.php?controller=customer&action=create" role="button">Thêm <i class="fas fa-plus"></i></a>
         </div>
     </form>

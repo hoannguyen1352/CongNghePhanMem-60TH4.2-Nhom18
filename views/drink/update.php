@@ -3,13 +3,13 @@
         <div class="form-group row">
             <label for="inputEmail3" class="col-sm-2 col-form-label">Tên</label>
             <div class="col-sm-10">
-                <input type="text" name="name" class="form-control" value="<?php echo $data['name']; ?>">
+                <input type="text" name="name" class="form-control" value="<?php echo $data['name']; ?>" required="required">
             </div>
         </div>
         <div class="form-group row">
             <label for="inputEmail3" class="col-sm-2 col-form-label">Giá</label>
             <div class="col-sm-10">
-                <input type="number" name="price" class="form-control" value="<?php echo $data['price']; ?>">
+                <input type="number" name="price" class="form-control" value="<?php echo $data['price']; ?>" required="required">
             </div>
         </div>
         <div class="form-group row">
@@ -23,7 +23,7 @@
         <div class="form-group row">
             <label for="inputEmail3" class="col-sm-2 col-form-label">Ghi chú</label>
             <div class="col-sm-10">
-                <input type="text" name="note" class="form-control" value="<?php echo $data['note']; ?>">
+                <input type="text" name="note" class="form-control" value="<?php echo $data['note']; ?>" required="required">
             </div>
         </div>
         <div class="form-group row">

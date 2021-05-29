@@ -4,7 +4,7 @@ include_once('./assets/layouts/header.php');
     <form action="index.php?controller=customer&action=processCreate" method="post">
       <div class="container-fruid" align="center">
       <div class="form-group col-4" align="left">
-      <h1 class="" style="text-align:left"></br>Thêm khách hàng</h1>
+      <h1 class="" style="text-align:left"></br>Thêm hội viên</h1>
           <label for="">Tên</label>
           <input type="text"class="form-control" name="name" id="" aria-describedby="helpId" placeholder="">
           <label for="">Số điện thoại</label>
