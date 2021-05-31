@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th5 29, 2021 lúc 08:02 PM
+-- Thời gian đã tạo: Th5 31, 2021 lúc 03:22 AM
 -- Phiên bản máy phục vụ: 10.4.14-MariaDB
 -- Phiên bản PHP: 7.2.34
 
@@ -69,7 +69,18 @@ INSERT INTO `billdetail` (`bid`, `did`, `number`, `total`) VALUES
 (1, 7, 1, 20000),
 (2, 2, 2, 60000),
 (2, 4, 3, 90000),
-(2, 10, 5, 150000);
+(2, 10, 5, 150000),
+(3, 5, 2, 40000),
+(3, 7, 3, 60000),
+(3, 8, 2, 30000),
+(8, 8, 3, 45000),
+(9, 10, 3, 90000),
+(10, 7, 2, 40000),
+(11, 7, 3, 60000),
+(12, 5, 2, 40000),
+(12, 10, 3, 90000),
+(13, 4, 3, 90000),
+(13, 11, 3, 90000);
 
 -- --------------------------------------------------------
 
@@ -79,7 +90,7 @@ INSERT INTO `billdetail` (`bid`, `did`, `number`, `total`) VALUES
 
 CREATE TABLE `bills` (
   `id` int(10) UNSIGNED NOT NULL,
-  `cid` int(10) UNSIGNED NOT NULL,
+  `cid` int(10) UNSIGNED DEFAULT NULL,
   `tid` int(10) UNSIGNED NOT NULL,
   `date` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -90,7 +101,14 @@ CREATE TABLE `bills` (
 
 INSERT INTO `bills` (`id`, `cid`, `tid`, `date`) VALUES
 (1, 1, 1, '2021-05-29'),
-(2, 1, 1, '2021-05-30');
+(2, 1, 1, '2021-05-30'),
+(3, 1, 2, '2021-05-30'),
+(8, 2, 2, '2021-05-30'),
+(9, 1, 2, '2021-05-30'),
+(10, NULL, 3, '2021-05-31'),
+(11, NULL, 2, '2021-05-31'),
+(12, NULL, 10, '2021-05-31'),
+(13, NULL, 7, '2021-05-31');
 
 -- --------------------------------------------------------
 
@@ -109,8 +127,6 @@ CREATE TABLE `books` (
 --
 
 INSERT INTO `books` (`tbid`, `did`, `number`) VALUES
-(2, 7, 3),
-(2, 8, 2),
 (3, 2, 3),
 (3, 6, 2);
 
@@ -132,8 +148,8 @@ CREATE TABLE `customers` (
 --
 
 INSERT INTO `customers` (`id`, `name`, `phone`, `total`) VALUES
-(1, 'Nguyễn Hà Phong', '0337646311', 5368000),
-(2, 'Lê Thành Long', '0337646432', 500000),
+(1, 'Nguyễn Hà Phong', '0337646311', 5534000),
+(2, 'Lê Thành Long', '0337646432', 545000),
 (3, 'Nguyễn Nam', '0349340719', 0),
 (4, 'Lê Sơn', '1900561252', 0),
 (5, 'Vũ Tài', '0185364223', 0);
@@ -185,7 +201,7 @@ CREATE TABLE `tables` (
 
 INSERT INTO `tables` (`id`, `name`, `status`) VALUES
 (1, 'Bàn 1', 0),
-(2, 'Bàn 2', 1),
+(2, 'Bàn 2', 0),
 (3, 'Bàn 3', 1),
 (4, 'Bàn 4', 0),
 (5, 'Bàn 5', 0),
@@ -262,7 +278,7 @@ ALTER TABLE `accounts`
 -- AUTO_INCREMENT cho bảng `bills`
 --
 ALTER TABLE `bills`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT cho bảng `customers`

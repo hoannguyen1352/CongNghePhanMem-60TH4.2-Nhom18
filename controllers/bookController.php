@@ -116,7 +116,7 @@ class bookController
             $sum+=$infor['total'];
         }
         $sale = 0;
-        if ($cid == "") $cid = 0;
+        if ($cid == "") $cid = 'NULL';
         if ($cid != 0) {
             if(Customer::showUpdate($cid)){
             $inforCustomer = Customer::showUpdate($cid);
@@ -128,7 +128,7 @@ class bookController
             $totalpay = $sum - $sale;
             }
             else{
-                $cid = 0;
+                $cid = 'NULL';
                 $totalpay = $sum - $sale;
             }
         }
@@ -141,14 +141,18 @@ class bookController
             $id = $_GET['id'];
             $cid = $_GET['cid'];
             $total = $_POST['totalpay'];
-            echo $total;
             $infortable = Book::index($id);
-            Bill::insert($cid, $id);
+            if($cid != 'NULL'){
+                Bill::insert($cid, $id);
+            }
+            else Bill::insertNULL($id);
             $billdata = Bill::lastindex();
             foreach($infortable as $tabledata){
                 Billdetail::insert($billdata['id'],$tabledata['id'], $tabledata['number'], $tabledata['total']);
             }
-            Customer::updatetotal($cid,$total);
+            if($cid != 'NULL'){
+                Customer::updatetotal($cid,$total);
+            }
             Book::deleteAllBooks($id);
             Table::updatestatus($id,0);
             header('location:index.php');
