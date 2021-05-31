@@ -146,10 +146,10 @@ class bookController
                 Bill::insert($cid, $id);
             }
             else Bill::insertNULL($id);
-            $billdata = Bill::lastindex();
-            foreach($infortable as $tabledata){
-                Billdetail::insert($billdata['id'],$tabledata['id'], $tabledata['number'], $tabledata['total']);
-            }
+            //$billdata = Bill::lastindex();
+            //foreach($infortable as $tabledata){
+            //    Billdetail::insert($billdata['id'],$tabledata['id'], $tabledata['number'], $tabledata['total']);
+            //}
             if($cid != 'NULL'){
                 Customer::updatetotal($cid,$total);
             }
