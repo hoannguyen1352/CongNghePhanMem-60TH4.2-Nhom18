@@ -1,7 +1,3 @@
-<?php
-include_once "./assets/layouts/navbar.php";
-include_once "./assets/layouts/header.php";
-?>
 <div class="wrap" style="width: 500px;margin: 0 auto;">
 
     <div class="container-fluid">
@@ -42,4 +38,3 @@ include_once "./assets/layouts/header.php";
 
     </div>
 </div>
-<?php include_once "./assets/layouts/footer.php"; ?>
