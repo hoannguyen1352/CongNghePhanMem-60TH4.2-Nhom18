@@ -38,5 +38,19 @@ class customerController
             header('location:index.php?controller=customer&action=index');
         }
     }
+    
+    public function delete()
+    {
+        if(User::isadmin())
+        {
+            $id=$_GET['id'];
+            $result = Customer::delete($id);
+            header('location:index.php?controller=customer&action=index');
+        }
+        else
+        {
+            header('location:index.php?controller=customer&action=index');
+        }
+    }
 }
 ?>

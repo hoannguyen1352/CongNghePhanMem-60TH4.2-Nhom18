@@ -32,5 +32,17 @@ class Table
         $query="update tables set status = $status where id = $idtable";
         query($query);
     }
+
+    public static function create()
+    {
+        $query="INSERT INTO tables VALUES (NULL, NULL, 0)" ;
+        query($query); 
+    }
+
+    public static function delete(int $id)
+    {
+        $query="DELETE from tables WHERE id = $id";
+        query($query);
+    }
 }
 ?>

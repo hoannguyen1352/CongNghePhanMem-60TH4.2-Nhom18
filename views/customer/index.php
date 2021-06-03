@@ -30,7 +30,12 @@ include_once('./assets/layouts/header.php');
                     echo '<td>'.$customers['name'].'</td>';
                     echo '<td>'.$customers['phone'].'</td>';
                     echo '<td>'.$customers['total'].'</td>';
-                    echo '<td><a href="./index.php?controller=customer&action=update&id='.$customers['id'].'" role="button"><i class="fas fa-pen ml-3"></i></a></td>';
+                    echo '<td><a href="./index.php?controller=customer&action=update&id='.$customers['id'].'" role="button"><i class="fas fa-pen ml-3"></i></a>';
+                    if(User::isadmin())
+                    {
+                        echo '<a onclick="return confirm(\'Bạn có muốn hủy thẻ hội viên này không?\')" href="./index.php?controller=customer&action=delete&id='.$customers['id'].'" role="button"><i class="fas fa-trash-alt ml-3"></i></a>';
+                    }
+                    echo '</td>';
                     echo '</tr>';
                 }
             }

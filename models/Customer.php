@@ -33,5 +33,11 @@ class Customer
         $query="UPDATE customers SET total=total+$total WHERE id = $cid;";
         query($query); 
     }
+
+    public static function delete(int $id)
+    {
+        $query="DELETE from customers WHERE id = $id";
+        query($query); 
+    }
 }
 ?>

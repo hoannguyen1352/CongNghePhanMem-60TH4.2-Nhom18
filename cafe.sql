@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.3
+-- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
--- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th5 31, 2021 lúc 03:22 AM
--- Phiên bản máy phục vụ: 10.4.14-MariaDB
--- Phiên bản PHP: 7.2.34
+-- Host: 127.0.0.1
+-- Generation Time: Jun 03, 2021 at 01:08 PM
+-- Server version: 10.4.17-MariaDB
+-- PHP Version: 8.0.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Cơ sở dữ liệu: `cafe`
+-- Database: `cafe`
 --
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `accounts`
+-- Table structure for table `accounts`
 --
 
 CREATE TABLE `accounts` (
@@ -38,7 +38,7 @@ CREATE TABLE `accounts` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_vietnamese_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `accounts`
+-- Dumping data for table `accounts`
 --
 
 INSERT INTO `accounts` (`id`, `username`, `password`, `level`, `token`, `name`, `phone`) VALUES
@@ -49,7 +49,7 @@ INSERT INTO `accounts` (`id`, `username`, `password`, `level`, `token`, `name`, 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `billdetail`
+-- Table structure for table `billdetail`
 --
 
 CREATE TABLE `billdetail` (
@@ -60,7 +60,7 @@ CREATE TABLE `billdetail` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `billdetail`
+-- Dumping data for table `billdetail`
 --
 
 INSERT INTO `billdetail` (`bid`, `did`, `number`, `total`) VALUES
@@ -85,18 +85,18 @@ INSERT INTO `billdetail` (`bid`, `did`, `number`, `total`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `bills`
+-- Table structure for table `bills`
 --
 
 CREATE TABLE `bills` (
   `id` int(10) UNSIGNED NOT NULL,
   `cid` int(10) UNSIGNED DEFAULT NULL,
-  `tid` int(10) UNSIGNED NOT NULL,
+  `tid` int(10) UNSIGNED DEFAULT NULL,
   `date` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `bills`
+-- Dumping data for table `bills`
 --
 
 INSERT INTO `bills` (`id`, `cid`, `tid`, `date`) VALUES
@@ -108,12 +108,14 @@ INSERT INTO `bills` (`id`, `cid`, `tid`, `date`) VALUES
 (10, NULL, 3, '2021-05-31'),
 (11, NULL, 2, '2021-05-31'),
 (12, NULL, 10, '2021-05-31'),
-(13, NULL, 7, '2021-05-31');
+(13, NULL, 7, '2021-05-31'),
+(14, 4, 1, '2021-05-31'),
+(15, 4, 2, '2021-05-31');
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `books`
+-- Table structure for table `books`
 --
 
 CREATE TABLE `books` (
@@ -123,17 +125,18 @@ CREATE TABLE `books` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `books`
+-- Dumping data for table `books`
 --
 
 INSERT INTO `books` (`tbid`, `did`, `number`) VALUES
 (3, 2, 3),
-(3, 6, 2);
+(3, 6, 2),
+(4, 4, 2);
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `customers`
+-- Table structure for table `customers`
 --
 
 CREATE TABLE `customers` (
@@ -144,20 +147,19 @@ CREATE TABLE `customers` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `customers`
+-- Dumping data for table `customers`
 --
 
 INSERT INTO `customers` (`id`, `name`, `phone`, `total`) VALUES
-(1, 'Nguyễn Hà Phong', '0337646311', 5534000),
+(1, 'Nguyễn Hà Phongg', '0337646311', 5534000),
 (2, 'Lê Thành Long', '0337646432', 545000),
 (3, 'Nguyễn Nam', '0349340719', 0),
-(4, 'Lê Sơn', '1900561252', 0),
-(5, 'Vũ Tài', '0185364223', 0);
+(4, 'Lê Sơn', '0154346646', 90000);
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `drinks`
+-- Table structure for table `drinks`
 --
 
 CREATE TABLE `drinks` (
@@ -169,7 +171,7 @@ CREATE TABLE `drinks` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_vietnamese_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `drinks`
+-- Dumping data for table `drinks`
 --
 
 INSERT INTO `drinks` (`id`, `name`, `price`, `image`, `note`) VALUES
@@ -186,44 +188,46 @@ INSERT INTO `drinks` (`id`, `name`, `price`, `image`, `note`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `tables`
+-- Table structure for table `tables`
 --
 
 CREATE TABLE `tables` (
   `id` int(11) UNSIGNED NOT NULL,
-  `name` text COLLATE utf8mb4_vietnamese_ci NOT NULL,
+  `name` text COLLATE utf8mb4_vietnamese_ci DEFAULT NULL,
   `status` tinyint(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_vietnamese_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `tables`
+-- Dumping data for table `tables`
 --
 
 INSERT INTO `tables` (`id`, `name`, `status`) VALUES
 (1, 'Bàn 1', 0),
 (2, 'Bàn 2', 0),
 (3, 'Bàn 3', 1),
-(4, 'Bàn 4', 0),
+(4, 'Bàn 4', 1),
 (5, 'Bàn 5', 0),
 (6, 'Bàn 6', 0),
 (7, 'Bàn 7', 0),
 (8, 'Bàn 8', 0),
 (9, 'Bàn 9', 0),
-(10, 'Bàn10', 0);
+(10, 'Bàn 10', 0),
+(11, 'Bàn 11', 0),
+(12, 'Bàn 12', 0);
 
 --
--- Chỉ mục cho các bảng đã đổ
+-- Indexes for dumped tables
 --
 
 --
--- Chỉ mục cho bảng `accounts`
+-- Indexes for table `accounts`
 --
 ALTER TABLE `accounts`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `username` (`username`) USING HASH;
 
 --
--- Chỉ mục cho bảng `billdetail`
+-- Indexes for table `billdetail`
 --
 ALTER TABLE `billdetail`
   ADD PRIMARY KEY (`bid`,`did`),
@@ -231,7 +235,7 @@ ALTER TABLE `billdetail`
   ADD KEY `did` (`did`);
 
 --
--- Chỉ mục cho bảng `bills`
+-- Indexes for table `bills`
 --
 ALTER TABLE `bills`
   ADD PRIMARY KEY (`id`),
@@ -239,7 +243,7 @@ ALTER TABLE `bills`
   ADD KEY `tid` (`tid`);
 
 --
--- Chỉ mục cho bảng `books`
+-- Indexes for table `books`
 --
 ALTER TABLE `books`
   ADD PRIMARY KEY (`tbid`,`did`),
@@ -247,81 +251,81 @@ ALTER TABLE `books`
   ADD KEY `did` (`did`);
 
 --
--- Chỉ mục cho bảng `customers`
+-- Indexes for table `customers`
 --
 ALTER TABLE `customers`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `drinks`
+-- Indexes for table `drinks`
 --
 ALTER TABLE `drinks`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `tables`
+-- Indexes for table `tables`
 --
 ALTER TABLE `tables`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT cho các bảng đã đổ
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT cho bảng `accounts`
+-- AUTO_INCREMENT for table `accounts`
 --
 ALTER TABLE `accounts`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT cho bảng `bills`
+-- AUTO_INCREMENT for table `bills`
 --
 ALTER TABLE `bills`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
--- AUTO_INCREMENT cho bảng `customers`
+-- AUTO_INCREMENT for table `customers`
 --
 ALTER TABLE `customers`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT cho bảng `drinks`
+-- AUTO_INCREMENT for table `drinks`
 --
 ALTER TABLE `drinks`
   MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
--- AUTO_INCREMENT cho bảng `tables`
+-- AUTO_INCREMENT for table `tables`
 --
 ALTER TABLE `tables`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
--- Các ràng buộc cho các bảng đã đổ
+-- Constraints for dumped tables
 --
 
 --
--- Các ràng buộc cho bảng `billdetail`
+-- Constraints for table `billdetail`
 --
 ALTER TABLE `billdetail`
   ADD CONSTRAINT `billdetail_ibfk_2` FOREIGN KEY (`did`) REFERENCES `drinks` (`id`),
   ADD CONSTRAINT `billdetail_ibfk_3` FOREIGN KEY (`bid`) REFERENCES `bills` (`id`);
 
 --
--- Các ràng buộc cho bảng `bills`
+-- Constraints for table `bills`
 --
 ALTER TABLE `bills`
-  ADD CONSTRAINT `bills_ibfk_1` FOREIGN KEY (`tid`) REFERENCES `tables` (`id`),
+  ADD CONSTRAINT `bills_ibfk_1` FOREIGN KEY (`tid`) REFERENCES `tables` (`id`) ON DELETE SET NULL,
   ADD CONSTRAINT `bills_ibfk_2` FOREIGN KEY (`cid`) REFERENCES `customers` (`id`);
 
 --
--- Các ràng buộc cho bảng `books`
+-- Constraints for table `books`
 --
 ALTER TABLE `books`
   ADD CONSTRAINT `books_ibfk_2` FOREIGN KEY (`did`) REFERENCES `drinks` (`id`),
-  ADD CONSTRAINT `books_ibfk_3` FOREIGN KEY (`tbid`) REFERENCES `tables` (`id`);
+  ADD CONSTRAINT `books_ibfk_3` FOREIGN KEY (`tbid`) REFERENCES `tables` (`id`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
