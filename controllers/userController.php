@@ -86,7 +86,7 @@ class userController
                 }
                 else
                 {
-                    header('location:index.php?controller=user&action=update&id='.$_GET['id'].'&result=false');
+                    header('location:index.php?controller=user&action=password&id='.$_GET['id'].'&result=false');
                 }        
             }
             else

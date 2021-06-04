@@ -20,8 +20,8 @@
         </div>
         <div class="form-group row">
             <div class="col-sm-2"></div>
-            <label class="text-danger" for=""><?php echo (isset($_GET['result']) && $_GET['result']) ? "Thành công" : "" ?></label>
-            <label class="text-danger" for=""><?php echo (isset($_GET['result']) && !$_GET['result']) ? "Nhập lại mật khẩu sai" : "" ?></label>
+            <label class="text-danger" for=""><?php echo (isset($_GET['result']) && $_GET['result']=='true') ? "Thành công" : "" ?></label>
+            <label class="text-danger" for=""><?php echo (isset($_GET['result']) && $_GET['result']=='false') ? "Nhập lại mật khẩu sai" : "" ?></label>
         </div>
         <div class="form-group row mx-auto">
             <div class="col-sm-2"></div>
