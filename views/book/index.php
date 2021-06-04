@@ -1,7 +1,3 @@
-<?php
-include_once "./assets/layouts/navbar.php";
-include_once "./assets/layouts/header.php";
-?>
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-6 ">
@@ -116,5 +112,3 @@ include_once "./assets/layouts/header.php";
         </div>
     </div>
 </div>
-
-<?php include_once "./assets/layouts/footer.php"; ?>

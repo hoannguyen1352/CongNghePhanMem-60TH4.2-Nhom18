@@ -19,7 +19,12 @@ if (User::isLogin()) {
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <a class="dropdown-item btn" href="index.php?controller=drink">Quản lý đồ uống</a>
+<<<<<<< HEAD
               <a class="dropdown-item btn" href="index.php?controller=user">Quản lý tài khoản</a>
+=======
+              <a class="dropdown-item btn" href="index.php?controller=bill">Hóa đơn</a>
+              <a class="dropdown-item btn" href="index.php?controller=bill&action=statistical">Thống kê</a>
+>>>>>>> 483c1e654668d659b367c9151c31f903323e3280
             </div>
           </li>
         <?php
