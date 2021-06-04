@@ -51,6 +51,7 @@ class User
             return false;
         }
     }
+    
     public static function logout()
     {
         session_destroy();
@@ -69,6 +70,43 @@ class User
         $query="select * from accounts";
         $data=getalldata($query);
         return $data;
+    }
+
+    public static function getuser($id)
+    {
+        $query="select * from accounts where id =$id";
+        $data=getonedata($query);
+        return $data;
+    }
+
+    public static function insert($username,$password,$name,$phone)
+    {
+        $token=rand_string(12);
+        $query = "insert into accounts (username,password,token,name,phone) values('$username','$password','$token','$name','$phone')";
+        $result=query($query);
+        return $result;
+    }
+
+    public static function update($id,$name,$phone)
+    {
+        $query = "update accounts set name='$name',phone='$phone' where id=$id";
+        $result=query($query);
+        return $result;
+    }
+
+    public static function delete($id)
+    {
+        $username=self::$username;
+        $query = "delete from accounts where id = $id and username !='$username'";
+        $result=query($query);
+        return $result;
+    }
+
+    public static function password($id,$password)
+    {
+        $query = "update accounts set password='$password' where id=$id";
+        $result=query($query);
+        return $result;
     }
 }
 ?>

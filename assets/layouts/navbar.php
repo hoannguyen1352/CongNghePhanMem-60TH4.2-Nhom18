@@ -19,6 +19,7 @@ if (User::isLogin()) {
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <a class="dropdown-item btn" href="index.php?controller=drink">Quản lý đồ uống</a>
+              <a class="dropdown-item btn" href="index.php?controller=user">Quản lý tài khoản</a>
             </div>
           </li>
         <?php
