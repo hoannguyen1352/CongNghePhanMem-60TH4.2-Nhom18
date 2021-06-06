@@ -15,18 +15,19 @@
         <div class="form-group row">
             <label for="inputEmail3" class="col-sm-2 col-form-label">Tên</label>
             <div class="col-sm-8">
-                <input type="text" name="name" class="form-control" required="required">
+                <input type="text" name="name" placeholder="Tên" class="form-control" required="required">
             </div>
         </div>
         <div class="form-group row">
             <label for="inputEmail3" class="col-sm-2 col-form-label">Số Điện Thoại</label>
             <div class="col-sm-8">
-                <input type="text" name="phone" class="form-control" required="required">
+            <input type="tel" pattern="[0-9]{4}[0-9]{3}[0-9]{3}" name="phone" class="form-control" placeholder="10 Số Điện Thoại" required="required">
             </div>
         </div>
         <div class="form-group row">
             <div class="col-sm-2"></div>
-            <label class="text-danger" for=""><?php echo (isset($_GET['result']) && $_GET['result']) ? "Thành công" : "" ?></label>
+            <label class="text-danger" for=""><?php echo (isset($_GET['result']) && $_GET['result']=='true') ? "Thành công" : "" ?></label>
+            <label class="text-danger" for=""><?php echo (isset($_GET['result']) && $_GET['result']=='false') ? "Tài khoản bị trùng" : "" ?></label>
         </div>
         <div class="form-group row mx-auto">
             <div class="col-sm-2"></div>

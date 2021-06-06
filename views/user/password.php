@@ -9,13 +9,13 @@
         <div class="form-group row">
             <label for="inputEmail3" class="col-sm-2 col-form-label">Mật Khẩu</label>
             <div class="col-sm-10">
-                <input type="text" name="password1" class="form-control" required="required">
+                <input type="password" name="password1" class="form-control" required="required">
             </div>
         </div>
         <div class="form-group row">
             <label for="inputEmail3" class="col-sm-2 col-form-label">Nhập Lại Mật Khẩu</label>
             <div class="col-sm-10">
-                <input type="text" name="password2" class="form-control"  required="required">
+                <input type="password" name="password2" class="form-control"  required="required">
             </div>
         </div>
         <div class="form-group row">
@@ -26,7 +26,7 @@
         <div class="form-group row mx-auto">
             <div class="col-sm-2"></div>
             <button type="submit" class="btn btn-primary">Cập Nhật</button>
-            <a name="" id="" class="btn btn-primary ml-2" href="index.php?controller=user" role="button">Thoát</a>
+            <a name="" id="" class="btn btn-primary ml-2" href="index.php?controller=user&action=update&id=<?php echo $data['id']; ?>" role="button">Thoát</a>
         </div>
     </form>
 </div>

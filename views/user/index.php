@@ -21,8 +21,7 @@
                     echo "<td class=\"border-dark\">" . $user['phone'] . "</td>";
                     echo '<td class="border-dark">';
                     echo '<a href="index.php?controller=user&action=update&id=' . $user['id'] . '">Sửa</a>';
-                    echo $user['level']==0?'<a class="ml-3" onclick="return confirm(\'Bạn có muốn xóa tài khoản này không?\')" href="index.php?controller=user&action=delete&id=' . $user['id'] . '">Xóa</a>':'';
-                    echo '<a class="ml-3" href="index.php?controller=user&action=password&id=' . $user['id'] . '">Đổi Pass</a>';
+                    echo $user['level']==0?'<a class="ml-3" onclick="return confirm(\'Bạn có muốn xóa tài khoản này không?\')" href="index.php?controller=user&action=delete&id=' . $user['id'] . '">Xóa</a>':'';                  
                     echo "</tr>";
                 }
             }
