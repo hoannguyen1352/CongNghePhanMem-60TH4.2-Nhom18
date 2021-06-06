@@ -5,9 +5,9 @@
             <form action="index.php?controller=bill&action=statistical" method="post" class="font-weight-bold">
                 <div class="form-group">
                   <label>Từ </label>
-                  <input type="date" name="date1" value="<?php echo $_POST['date1']; ?>">
+                  <input type="date" name="date1" value="<?php if(isset($date1)) echo $date1; ?>">
                   <label>Đến </label>
-                  <input type="date" name="date2" class="mr-5" value="<?php echo $_POST['date2']; ?>">
+                  <input type="date" name="date2" class="mr-5" value="<?php if(isset($date2)) echo $date2; ?>">
                   <button type="submit" class="btn btn-success">Thống kê</button>
                 </div>
                 <div class="form-group">
