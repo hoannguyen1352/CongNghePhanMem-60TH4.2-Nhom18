@@ -82,7 +82,7 @@ class userController
         {
             if(isset($_POST['password1']) && isset($_POST['password2']) )
             {
-                if($_POST['password1']==$_POST['password2'])
+                if($_POST['password1']==$_POST['password2'] && $_POST['password1']!="")
                 {
                     User::password($_GET['id'],$_POST['password1']);
                     header('location:index.php?controller=user&action=password&id='.$_GET['id'].'&result=true');
@@ -92,7 +92,6 @@ class userController
                     header('location:index.php?controller=user&action=password&id='.$_GET['id'].'&result=false');
                 }        
             }
-            else
             $data=User::getuser($_GET['id']);
             include_once('./views/user/password.php');
         }
