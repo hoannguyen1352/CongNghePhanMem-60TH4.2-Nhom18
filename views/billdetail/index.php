@@ -13,7 +13,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <?php if (isset($data)) {
+                    <?php if (isset($data) && is_array($data)) {
                         foreach ($data as $billdetail) {
                     ?>
                             <tr>
