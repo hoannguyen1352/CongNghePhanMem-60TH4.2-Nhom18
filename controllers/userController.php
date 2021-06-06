@@ -36,11 +36,10 @@ class userController
             if(isset($_POST['username']) && isset($_POST['password']) && isset($_POST['name']) && isset($_POST['phone']))
             {
                 $result=User::insert($_POST['username'],$_POST['password'],$_POST['name'],$_POST['phone']);
-                //header('location:index.php?controller=user&action=add&result='.$result);
                 if($result)
                     header('location:index.php?controller=user&action=add&result=true');
                 else
-                    header('location:index.php?controller=user&action=add&result=false');
+                    header('location:index.php?controller=user&action=add&result=false');               
             }
             include_once('./views/user/add.php');
         }

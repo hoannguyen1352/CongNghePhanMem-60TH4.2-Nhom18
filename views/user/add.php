@@ -26,8 +26,8 @@
         </div>
         <div class="form-group row">
             <div class="col-sm-2"></div>
-            <label class="text-danger" for=""><?php echo (isset($_GET['result']) && $_GET['result']=='true') ? "Thành công" : "" ?></label>
-            <label class="text-danger" for=""><?php echo (isset($_GET['result']) && $_GET['result']=='false') ? "Tài khoản bị trùng" : "" ?></label>
+            <label class="text-danger ml-2" for=""><?php echo (isset($_GET['result']) && $_GET['result']=='true') ? "Thành công" : "" ?></label>
+            <label class="text-danger ml-2" for=""><?php echo (isset($_GET['result']) && $_GET['result']=='false') ? "Tài khoản bị trùng" : "" ?></label>
         </div>
         <div class="form-group row mx-auto">
             <div class="col-sm-2"></div>
